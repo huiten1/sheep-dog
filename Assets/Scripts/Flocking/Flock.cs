@@ -66,7 +66,7 @@ namespace Flocking
         List<Transform> GetNearbyObjects(FlockAgent agent)
         {
             List<Transform> context = new List<Transform>();
-            Collider[] contextColliders = Physics.OverlapSphere(agent.transform.position, neighborRadius,1<<6);
+            Collider[] contextColliders = Physics.OverlapSphere(agent.transform.position, neighborRadius);
             foreach (var c in contextColliders)
             {
                 if (c != agent.AgentCollider)

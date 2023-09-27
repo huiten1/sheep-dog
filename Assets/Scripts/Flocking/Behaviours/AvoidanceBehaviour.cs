@@ -17,7 +17,7 @@ namespace Flocking.Behaviours
             List<Transform> filteredContext = (filter == null) ? context : filter.Filter(agent, context);
             foreach (Transform item in filteredContext)
             {
-                if (Vector2.SqrMagnitude(item.position - agent.transform.position) < flock.SquareAvoidanceRadius)
+                if (Vector3.SqrMagnitude(item.position - agent.transform.position) < flock.SquareAvoidanceRadius)
                 {
                     nAvoid++;
                     avoidanceMove += (agent.transform.position - item.position);
