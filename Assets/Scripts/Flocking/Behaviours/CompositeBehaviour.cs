@@ -20,13 +20,7 @@ namespace Flocking.Behaviours
         // public float[] weights;
         public override Vector3 CalculateMove(FlockAgent agent, List<Transform> context, Flock flock)
         {
-            // if (weights.Length != behaviors.Length)
-            // {
-            //     Debug.LogError("Data mismatch in " + name, this);
-            //     return Vector3.zero;
-            // }
 
-            //set up move
             Vector3 move = Vector3.zero;
 
             //iterate through behaviors

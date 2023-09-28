@@ -7,9 +7,12 @@ namespace _Game.Movement
 {
     public class Movement : MonoBehaviour
     {
+
         private IMotor _motor;
         private IMovementInput _movementInput;
         [SerializeField] private UpdateType updateType;
+
+  
         [Inject]
         public void Construct(IMovementInput movementInput, IMotor motor)
         {
