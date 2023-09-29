@@ -10,5 +10,6 @@ using UnityEngine;
         private void Update()
         {
             stayInRadiusBehaviour.center = transform.position;
+            stayInRadiusBehaviour.direction = transform.forward;
         }
     }

@@ -7,17 +7,18 @@ namespace Flocking.Behaviours
     public class GetAwayFromRadius : FlockBehaviour
     {
         public Vector3 center;
+        public Vector3 direction;
         public float radius;
         public override Vector3 CalculateMove(FlockAgent agent, List<Transform> context, Flock flock)
         {
             Vector3 centerOffset =  agent.transform.position - center;
             float t = centerOffset.magnitude / radius;
-            if (t > 1f)
+            if (t > 1f || Vector3.Dot(direction.normalized,centerOffset.normalized)<0.25)
             {
                 return Vector3.zero;
             }
-
-            return centerOffset/ t*t;
+            
+            return direction / t*t;
         }
     }
 }

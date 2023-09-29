@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fab277786b14317977a84c1731801d8, type: 3}
   m_Name: Get Away From Radius
   m_EditorClassIdentifier: 
-  center: {x: -10.048927, y: 0, z: 10.462958}
-  radius: 10
+  center: {x: 4.3152514, y: 0, z: 28.45786}
+  direction: {x: -0.81406873, y: 0, z: 0.5807685}
+  radius: 25

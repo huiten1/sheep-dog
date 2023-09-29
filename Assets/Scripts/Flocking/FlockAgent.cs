@@ -35,6 +35,8 @@ namespace Flocking
             transform.position += vel * Time.deltaTime;
         }
 
+
+        public void RemoveFromFlock() => agentFlock.RemoveAgent(this);
         public MovementData MovementData { get; private set; } = new MovementData();
         public void ReadInput()
         {

@@ -13,5 +13,12 @@ namespace Flocking
             stayInBoxBehaviour.center = transform.position;
             stayInBoxBehaviour.size = transform.localScale;
         }
+        
+        
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawWireCube(transform.position,transform.localScale);       
+        }
     }
 }

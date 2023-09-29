@@ -13,18 +13,16 @@ namespace Flocking.Behaviours
         
         public override Vector3 CalculateMove(FlockAgent agent, List<Transform> context, Flock flock)
         {
-            if (bound != null)
-            {
-                bound = new Bounds(center, size);                         
-            }
+            bound = new Bounds(center, size);
+
             var position = agent.transform.position;
             Vector3 centerOffset = bound.ClosestPoint(position) - position;
             float t = centerOffset.magnitude / dist;
-            if (t < 0.9f)
+            
+            if (t < 0.9f && bound.Contains(position))
             {
                 return Vector3.zero;
             }
-
             return centerOffset * (t * t);
         }
     }

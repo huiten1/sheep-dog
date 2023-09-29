@@ -13,6 +13,7 @@ namespace _Game.Movement
         public void Move(MovementData movementData)
         {
             _transform.position += movementData.Direction*Time.deltaTime;
+            _transform.rotation = Quaternion.Slerp(_transform.rotation, movementData.rotation, Time.deltaTime * 5);
         }
     }
 }

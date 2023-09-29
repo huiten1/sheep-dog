@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using Spawners;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Flocking
@@ -10,8 +13,7 @@ namespace Flocking
         private List<FlockAgent> _agents = new();
         public FlockBehaviour flockBehaviour;
 
-        public int startingCount = 100;
-         const float AgentDensity = 1f;
+        [SerializeField] private GameObject spawnerObject;
   
         [Range(1f, 100f)]
         public float driveFactor = 10f;
@@ -25,32 +27,27 @@ namespace Flocking
         float squareMaxSpeed;
         float squareNeighborRadius;
         float squareAvoidanceRadius;
-        public float SquareAvoidanceRadius => squareAvoidanceRadius;
         
+        
+        private ISpawner _spawner;
+        public float SquareAvoidanceRadius => squareAvoidanceRadius;
+        public void RemoveAgent(FlockAgent agent) => _agents.Remove(agent);
         void Start()
         {
             squareMaxSpeed = maxSpeed * maxSpeed;
             squareNeighborRadius = neighborRadius * neighborRadius;
             squareAvoidanceRadius = squareNeighborRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
-
-            for (int i = 0; i < startingCount; i++)
-            {
-                FlockAgent newAgent = Instantiate(
-                    agentPrefab,
-                     Vector3.ProjectOnPlane(Random.insideUnitSphere,Vector3.up) * startingCount * AgentDensity,
-                    Quaternion.Euler(Vector3.forward * Random.Range(0f, 360f)),
-                    transform
-                );
-                newAgent.name = "Agent " + i;
-                newAgent.Initialize(this);
-                _agents.Add(newAgent);
-            }
+            
+            if(!spawnerObject) return;
+            _spawner = spawnerObject.GetComponent<ISpawner>();
+            _agents = _spawner.Spawn(agentPrefab,(flockAgent)=>flockAgent.Initialize(this)).ToList();
         }
         // Update is called once per frame
         void Update()
         {
             foreach (FlockAgent agent in _agents)
             {
+                if(!agent) continue; 
                 List<Transform> context = GetNearbyObjects(agent);
 
                 Vector3 move = flockBehaviour.CalculateMove(agent, context, this);
@@ -78,5 +75,12 @@ namespace Flocking
         }
 
 
+        public void AddToFlock(FlockAgent agent)
+        {
+            if(!agent) return;
+            agent.transform.parent = transform;
+            agent.Initialize(this);
+            _agents.Add(agent);
+        }
     }
 }

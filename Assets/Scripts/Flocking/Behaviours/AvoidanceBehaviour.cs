@@ -20,7 +20,8 @@ namespace Flocking.Behaviours
                 if (Vector3.SqrMagnitude(item.position - agent.transform.position) < flock.SquareAvoidanceRadius)
                 {
                     nAvoid++;
-                    avoidanceMove += (agent.transform.position - item.position);
+                    var dir = agent.transform.position - item.position;
+                    avoidanceMove += dir.normalized/(dir.sqrMagnitude/flock.SquareAvoidanceRadius);
                 }
             }
             if (nAvoid > 0)
