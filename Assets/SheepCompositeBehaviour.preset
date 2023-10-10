@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SheepCompositeBehaviour
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 20e20cb21a7e44cfb6d24e7010d1a684,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: behaviours.Array.size
+    value: 7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: behaviours.Array.data[0].behavior
+    value: 
+    objectReference: {fileID: 11400000, guid: 96c21bc50edaccb4d99c384124d774ea, type: 2}
+  - target: {fileID: 0}
+    propertyPath: behaviours.Array.data[0].weight
+    value: 0.31
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: behaviours.Array.data[1].behavior
+    value: 
+    objectReference: {fileID: 11400000, guid: c35c632475b9dda4b8403e3b781f4f58, type: 2}
+  - target: {fileID: 0}
+    propertyPath: behaviours.Array.data[1].weight
+    value: 0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: behaviours.Array.data[2].behavior
+    value: 
+    objectReference: {fileID: 11400000, guid: 595c0ceeee506c549973a519fc74a297, type: 2}
+  - target: {fileID: 0}
+    propertyPath: behaviours.Array.data[2].weight
+    value: 0.52
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: behaviours.Array.data[3].behavior
+    value: 
+    objectReference: {fileID: 11400000, guid: 52bca468871b1aa4f84e5ddef2607135, type: 2}
+  - target: {fileID: 0}
+    propertyPath: behaviours.Array.data[3].weight
+    value: 1.57
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: behaviours.Array.data[4].behavior
+    value: 
+    objectReference: {fileID: 11400000, guid: 8e23c13d364bd1e42a5b9b1abac74954, type: 2}
+  - target: {fileID: 0}
+    propertyPath: behaviours.Array.data[4].weight
+    value: 0.92
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: behaviours.Array.data[5].behavior
+    value: 
+    objectReference: {fileID: 11400000, guid: ef27de4df75e70e408b3729267e7e335, type: 2}
+  - target: {fileID: 0}
+    propertyPath: behaviours.Array.data[5].weight
+    value: 0.5
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: behaviours.Array.data[6].behavior
+    value: 
+    objectReference: {fileID: 11400000, guid: a604074289f56dc4f8d66b437b635daa, type: 2}
+  - target: {fileID: 0}
+    propertyPath: behaviours.Array.data[6].weight
+    value: 1.5
+    objectReference: {fileID: 0}
+  m_ExcludedProperties: []

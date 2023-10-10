@@ -37,29 +37,23 @@ namespace _Game.Followers
                 { FollowType.Fixed, FixedFollow },
                 { FollowType.SmoothDamp, SmoothFollow },
                 { FollowType.Lerp, Lerp },
-
             };
         }
-
-
         private void Update()
         {
             if (updateMethod != UpdateMethod.Update) return;
             Tick();
         }
-
         private void FixedUpdate()
         {
             if (updateMethod != UpdateMethod.FixedUpdate) return;
             Tick();
         }
-
         private void LateUpdate()
         {
             if (updateMethod != UpdateMethod.LateUpdate) return;
             Tick();
         }
-
         private void Tick()
         {
             var targetPos = targetTf.position - offset;
@@ -69,12 +63,10 @@ namespace _Game.Followers
         {
             transform.position = targetPos;
         }
-
         private void SmoothFollow(Vector3 targetPos)
         {
             transform.position = Vector3.SmoothDamp(transform.position, targetPos, ref smoothVel, smoothTime);
         }
-
         private void Lerp(Vector3 targetPos)
         {
             transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * lerpMultiplier);

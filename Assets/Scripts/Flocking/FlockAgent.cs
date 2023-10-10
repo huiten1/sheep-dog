@@ -1,5 +1,6 @@
 ﻿using System;
 using _Game.Movement;
+using Cinemachine.Utility;
 using UnityEngine;
 
 namespace Flocking
@@ -25,22 +26,20 @@ namespace Flocking
 
         public void Move(Vector3 vel)
         {
+            if(vel.IsNaN()) return;
             vel.y = 0;
             _vel = vel;
             if(vel.magnitude>0.001f)
                 MovementData.rotation = Quaternion.LookRotation(vel);
-            MovementData.Direction = vel;
-            if(vel.magnitude>0.001f)
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(vel),Time.deltaTime*5);
+            MovementData.Direction = vel / 3f;
+            if(vel.magnitude>0.1f)
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(vel),Time.deltaTime*2);
             transform.position += vel * Time.deltaTime;
         }
 
 
         public void RemoveFromFlock() => agentFlock.RemoveAgent(this);
         public MovementData MovementData { get; private set; } = new MovementData();
-        public void ReadInput()
-        {
-            
-        }
+        public void ReadInput(){}
     }
 }

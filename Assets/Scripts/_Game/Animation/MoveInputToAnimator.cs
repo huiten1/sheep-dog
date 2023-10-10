@@ -11,6 +11,7 @@ namespace _Game.Animation
         [SerializeField] private GameObject movementInputObj;
         private IMovementInput _movementInput;
         private static readonly int Speed = Animator.StringToHash("speed");
+        [SerializeField] private float maxSpeed = 1f;
 
         private void Start()
         {
@@ -21,7 +22,7 @@ namespace _Game.Animation
         {
             if(_movementInput==null) return;
             
-            animator.SetFloat(Speed,_movementInput.MovementData.Direction.magnitude);
+            animator.SetFloat(Speed,_movementInput.MovementData.Direction.magnitude / maxSpeed);
         }
     }
 }

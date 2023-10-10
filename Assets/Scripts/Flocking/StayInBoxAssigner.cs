@@ -18,6 +18,8 @@ namespace Flocking
 
         private void OnDrawGizmos()
         {
+            Gizmos.color =Color.yellow;
+            ;
             Gizmos.DrawWireCube(transform.position,transform.localScale);       
         }
     }

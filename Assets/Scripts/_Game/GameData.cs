@@ -1,14 +1,29 @@
 ﻿using System;
+using UnityEngine;
+using UnityEngine.Serialization;
 
 
-    [Serializable] 
+[Serializable] 
     public class GameData
     {
-        public int level;
-        public int gold;
+        public float dogChaseRadius;
+        public float playerSpeed;
+        public float levelTime;
+        public CameraMode cameraMode;
+        public int sheepPrice; 
+        public int goldenSheepPrice;
         public GameData()
         {
-            level = 1;
-            gold = 0;
+            levelTime = 30;
+            dogChaseRadius = 25;
+            playerSpeed = 10;
+            sheepPrice = 5;
+            goldenSheepPrice = 20;
         }
     }
+
+public enum CameraMode
+{
+    Normal,
+    AD
+}

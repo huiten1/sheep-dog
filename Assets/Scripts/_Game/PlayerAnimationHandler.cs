@@ -7,7 +7,7 @@ namespace _Game
 {
     public class PlayerAnimationHandler : MonoBehaviour
     {
-        [SerializeField] private Animator animator;
+        public Animator animator;
 
         private IMovementInput _movementInput;
         private static readonly int Speed = Animator.StringToHash("speed");
@@ -20,6 +20,7 @@ namespace _Game
 
         private void Update()
         {
+            if(!animator) return;
             if(_movementInput==null) return;
             
             animator.SetFloat(Speed,_movementInput.MovementData.Direction.magnitude);

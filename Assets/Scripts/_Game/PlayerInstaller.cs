@@ -9,11 +9,12 @@ using Zenject;
 public class PlayerInstaller : MonoInstaller
 {
     [SerializeField] private Joystick joystick;
-    [SerializeField] private Rigidbody rb;
+    [SerializeField] private CharacterController cc;
+
     public override void InstallBindings()
     {
         Container.Bind<Joystick>().FromInstance(joystick).AsSingle();
         Container.BindInterfacesTo<JoystickInput>().AsSingle();
-        Container.BindInterfacesTo<RbMotor>().AsSingle().WithArguments(rb);
+        Container.BindInterfacesTo<CCMotor>().AsSingle().WithArguments(cc,GameManager.Instance.GameData.playerSpeed);
     }
 }

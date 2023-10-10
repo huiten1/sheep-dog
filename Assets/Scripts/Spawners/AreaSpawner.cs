@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Unity.Mathematics;
+
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -30,7 +30,7 @@ namespace Spawners
                     var randomOffset = Random.insideUnitCircle;
                     Vector3 pos = areaTf.transform.position + new Vector3(x +randomOffset.x  , 0, y + randomOffset.y);
 
-                    var spawnedObject = Instantiate(prefab, pos, quaternion.identity);
+                    var spawnedObject = Instantiate(prefab, pos, Quaternion.Euler(0,Random.Range(-180,180f),0));
                     spawnAction?.Invoke(spawnedObject);
                     spawnedObjects.Add(spawnedObject);
                 }        

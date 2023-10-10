@@ -53,7 +53,7 @@ namespace TMPro.Examples
             Matrix4x4 matrix;
 
             m_TextComponent.havePropertiesChanged = true; // Need to force the TextMeshPro Object to be updated.
-            CurveScale *= 10;
+            // CurveScale *= 10;
             float old_CurveScale = CurveScale;
             AnimationCurve old_curve = CopyAnimationCurve(VertexCurve);
 
@@ -132,9 +132,6 @@ namespace TMPro.Examples
                     vertices[vertexIndex + 2] += offsetToMidBaseline;
                     vertices[vertexIndex + 3] += offsetToMidBaseline;
                 }
-
-
-                // Upload the mesh with the revised information
                 m_TextComponent.UpdateVertexData();
 
                 yield return new WaitForSeconds(0.025f);

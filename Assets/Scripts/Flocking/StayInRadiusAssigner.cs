@@ -24,7 +24,7 @@ namespace Flocking
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawSphere(transform.position,transform.localScale.magnitude);
+            Gizmos.DrawWireSphere(transform.position,transform.localScale.magnitude);
         }
     }
 }

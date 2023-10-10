@@ -158,7 +158,7 @@ Material:
     - _ReflectionSmoothness: 0.5
     - _RenderingMode: 0
     - _RimMax: 0.88
-    - _RimMin: 0.21
+    - _RimMin: 0.085
     - _ShadowColorLightAtten: 1
     - _SingleIndirectColor: 0
     - _Smoothness: 0.5

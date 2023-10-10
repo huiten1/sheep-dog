@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908a66580541479cba1fd0f7834e4f82, type: 3}
   m_Name: Stay In Box
   m_EditorClassIdentifier: 
-  filter: {fileID: 11400000, guid: 57bced41efa487041b58bdf70511c665, type: 2}
-  center: {x: 0, y: 0, z: 0}
-  size: {x: 100, y: 1, z: 100}
+  filter: {fileID: 11400000, guid: 653b0af521910e24e83d2ddad7513828, type: 2}
+  center: {x: 0, y: 0, z: -11}
+  size: {x: 98.802, y: 1, z: 90}
   dist: 1

@@ -8,7 +8,7 @@ namespace Flocking.Behaviours
     {
         Vector3 _currentVelocity;
         public float agentSmoothTime = 0.5f;
-
+        private List<Transform> filteredContext = new();
         public override Vector3 CalculateMove(FlockAgent agent, List<Transform> context, Flock flock)
         {
             //if no neighbors, return no adjustment
@@ -17,7 +17,7 @@ namespace Flocking.Behaviours
 
             //add all points together and average
             Vector3 cohesionMove = Vector3.zero;
-            List<Transform> filteredContext = (filter == null) ? context : filter.Filter(agent, context);
+            filteredContext = (filter == null) ? context : filter.Filter(agent, context);
             foreach (Transform item in filteredContext)
             {
                 cohesionMove += item.position;

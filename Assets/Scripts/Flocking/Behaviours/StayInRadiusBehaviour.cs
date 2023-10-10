@@ -17,7 +17,7 @@ namespace Flocking.Behaviours
                 return Vector3.zero;
             }
 
-            return centerOffset * t * t;
+            return centerOffset * (t * t);
         }
     }
 }
