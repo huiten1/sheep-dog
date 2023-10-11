@@ -12,8 +12,14 @@ using UnityEngine.Serialization;
         public CameraMode cameraMode;
         public int sheepPrice; 
         public int goldenSheepPrice;
+     
+        public float sheepMaxSpeed;
+        public float sheepMinSpeed;
+        
         public GameData()
         {
+            sheepMaxSpeed = 25;
+            sheepMinSpeed = 0;
             levelTime = 30;
             dogChaseRadius = 25;
             playerSpeed = 10;
@@ -21,6 +27,8 @@ using UnityEngine.Serialization;
             goldenSheepPrice = 20;
         }
     }
+
+
 
 public enum CameraMode
 {

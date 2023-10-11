@@ -12,7 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fab277786b14317977a84c1731801d8, type: 3}
   m_Name: Get Away From Player
   m_EditorClassIdentifier: 
-  center: {x: 4.7188087, y: 0, z: 25.396046}
-  direction: {x: -0.9595315, y: 0, z: -0.28160143}
-  radius: 25
-  angle: 30
+  getAwayCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 50.08606
+      inSlope: -53.78522
+      outSlope: -53.78522
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.20881242
+    - serializedVersion: 3
+      time: 1
+      value: 30
+      inSlope: -0.030292217
+      outSlope: -0.030292217
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.37175748
+      outWeight: 0.08231709
+    - serializedVersion: 3
+      time: 2.0010433
+      value: 0.004722326
+      inSlope: -0.81075406
+      outSlope: -0.81075406
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.07917631
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  center: {x: 0, y: 0, z: -37.38}
+  direction: {x: 0, y: 0, z: 1}
+  drive: 0
+  radius: 15
+  angle: 80

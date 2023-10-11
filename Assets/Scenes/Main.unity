@@ -1672,7 +1672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb4fda121684883abf0c6ba6821e3b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 50
+  radius: 36.79
   target: {fileID: 1971856016}
   targetCollider: {fileID: 112783235}
 --- !u!1 &115805854
@@ -16330,7 +16330,7 @@ MonoBehaviour:
   uiDocument: {fileID: 498640793}
   uiStyleSheet: {fileID: 7433441132597879392, guid: 5c8cdecacabb1504c9ce771e22cb1f82,
     type: 3}
-  show: 0
+  show: 1
 --- !u!4 &1015449527
 Transform:
   m_ObjectHideFlags: 0
@@ -19722,8 +19722,8 @@ MonoBehaviour:
     m_Bits: 192
   spawnerObject: {fileID: 1211207925}
   goldenSheepSpawner: {fileID: 1694483380}
-  driveFactor: 10
-  maxSpeed: 10
+  driveFactor: 1
+  maxSpeed: 25
   neighborRadius: 6.54
   avoidanceRadiusMultiplier: 0.859
   startFlockCount: 0

@@ -26,6 +26,13 @@
     /*padding-left: 32px;*/
 }
 
+.class-container{
+    flex-direction: column;
+}
+.class-name{
+    color: white;
+}
+
 
 .field-input{
     flex-grow: 1;

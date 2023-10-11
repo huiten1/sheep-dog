@@ -12,7 +12,7 @@ namespace _Game.Movement
         private IMovementInput _movementInput;
         [SerializeField] private UpdateType updateType;
 
-  
+        
         [Inject]
         public void Construct(IMovementInput movementInput, IMotor motor)
         {

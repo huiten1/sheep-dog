@@ -1,19 +1,25 @@
 ﻿using System;
 using _Game;
 using _Game.AI;
+using _Game.Movement;
 using Dreamteck.Splines.Primitives;
 using Flocking.Behaviours;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Zenject;
 
 public class Player : MonoBehaviour,IKillable
     {
         [FormerlySerializedAs("stayInRadiusBehaviour")] [SerializeField] private GetAwayFromEntity stayInEntityBehaviour;
         [SerializeField] private Animator _animator;
+            [Inject]
+        public IMovementInput _movementInput;
+
 
         private void Start()
         {
+      
             stayInEntityBehaviour.radius = GameManager.Instance.GameData.dogChaseRadius;
         }
 
@@ -21,6 +27,8 @@ public class Player : MonoBehaviour,IKillable
         {
             stayInEntityBehaviour.center = transform.position;
             stayInEntityBehaviour.direction = transform.forward;
+            if(_movementInput!=null)
+                stayInEntityBehaviour.drive = _movementInput.MovementData.Direction.magnitude;
         }
 
         public void GetPlayerModel(GameObject model)

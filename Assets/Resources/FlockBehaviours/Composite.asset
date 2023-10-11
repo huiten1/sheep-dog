@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: Composite
   m_EditorClassIdentifier: 
   behaviours:
+  - behavior: {fileID: 11400000, guid: 52bca468871b1aa4f84e5ddef2607135, type: 2}
+    weight: 0.584
   - behavior: {fileID: 11400000, guid: 96c21bc50edaccb4d99c384124d774ea, type: 2}
     weight: 0.5
   - behavior: {fileID: 11400000, guid: c35c632475b9dda4b8403e3b781f4f58, type: 2}
-    weight: 0.4
+    weight: 0.55
   - behavior: {fileID: 11400000, guid: 595c0ceeee506c549973a519fc74a297, type: 2}
-    weight: 0.3
-  - behavior: {fileID: 11400000, guid: 52bca468871b1aa4f84e5ddef2607135, type: 2}
-    weight: 0.785
+    weight: 0.38
   - behavior: {fileID: 11400000, guid: 8e23c13d364bd1e42a5b9b1abac74954, type: 2}
-    weight: 0.12
+    weight: 0.263
   - behavior: {fileID: 11400000, guid: ef27de4df75e70e408b3729267e7e335, type: 2}
     weight: 1
   - behavior: {fileID: 11400000, guid: a604074289f56dc4f8d66b437b635daa, type: 2}

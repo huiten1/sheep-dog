@@ -41,49 +41,9 @@ namespace DebugMenu
 
             var scrollView = Create<ScrollView>("scroll-view");
             var gameData = SaveManager.Load<GameData>();
-            foreach (var fieldInfo in typeof(GameData).GetFields())
-            {
-                var fieldContainer = Create("field-container");
-                var fieldName = Create<Label>("field-name");
-                fieldName.text = fieldInfo.Name;
-
-                VisualElement fieldInput = null;
-                if (fieldInfo.FieldType == typeof(int))
-                {
-                    // fieldInput = CreateField<IntegerField, int>(fieldInfo, gameData);
-                    fieldInput = CreateTextField(fieldInfo, gameData, (newData) => int.Parse(newData));
-                }
-                if (fieldInfo.FieldType == typeof(float))
-                {
-                    fieldInput = CreateTextField(fieldInfo, gameData, (newData) => float.Parse(newData));
-                }
-                if (fieldInfo.FieldType == typeof(string))
-                {
-                    fieldInput = CreateField<TextField, string>(fieldInfo, gameData);
-                    
-                }
-                if (fieldInfo.FieldType.IsEnum)
-                {
-                    var dropDown = new DropdownField();
-                    dropDown.AddToClassList("field-input");
-                    dropDown.value=fieldInfo.GetValue(gameData).ToString();
-
-                    List<string> choices = new();
-                    foreach (var value in Enum.GetValues(fieldInfo.FieldType))
-                    {
-                        choices.Add(Enum.GetName(fieldInfo.FieldType, value));
-                    }
-                    dropDown.choices = choices;
-                    dropDown.label = fieldInfo.Name;
-                    dropDown.RegisterValueChangedCallback(changedEvent =>
-                        fieldInfo.SetValue(gameData, Enum.Parse(fieldInfo.FieldType, changedEvent.newValue)));
-                    fieldInput = dropDown;
-                    // fieldInput = CreateField<DropdownField, string>(fieldInfo,gameData);
-                }
-
-                fieldContainer.Add(fieldInput);
-                scrollView.Add(fieldContainer);
-            }
+            
+            
+            GenerateFieldsInputs(gameData,typeof(GameData).GetFields(), scrollView);
 
             var saveButton = Create<Button>("button");
             saveButton.clicked += () => { 
@@ -108,7 +68,64 @@ namespace DebugMenu
             root.Add(scrollView);
         }
 
-        private static TextField CreateTextField<T>(FieldInfo fieldInfo, GameData gameData , Func<string,T> setField)
+        private void GenerateFieldsInputs<T>(T data,FieldInfo[] fields, VisualElement container)
+        {
+            foreach (var fieldInfo in fields)
+            {
+                var fieldContainer = Create("field-container");
+                VisualElement fieldInput = null;
+                if (fieldInfo.FieldType == typeof(int))
+                {
+                    // fieldInput = CreateField<IntegerField, int>(fieldInfo, gameData);
+                    fieldInput = CreateTextField(fieldInfo, data, int.Parse);
+                }
+
+                if (fieldInfo.FieldType == typeof(float))
+                {
+                    fieldInput = CreateTextField(fieldInfo, data, float.Parse);
+                }
+
+                if (fieldInfo.FieldType == typeof(string))
+                {
+                    fieldInput = CreateField<TextField, string,T>(fieldInfo, data);
+                }
+
+                if (fieldInfo.FieldType.IsEnum)
+                {
+                    var dropDown = new DropdownField();
+                    dropDown.AddToClassList("field-input");
+                    dropDown.value = fieldInfo.GetValue(data).ToString();
+
+                    List<string> choices = new();
+                    foreach (var value in Enum.GetValues(fieldInfo.FieldType))
+                    {
+                        choices.Add(Enum.GetName(fieldInfo.FieldType, value));
+                    }
+
+                    dropDown.choices = choices;
+                    dropDown.label = fieldInfo.Name;
+                    dropDown.RegisterValueChangedCallback(changedEvent =>
+                        fieldInfo.SetValue(data, Enum.Parse(fieldInfo.FieldType, changedEvent.newValue)));
+                    fieldInput = dropDown;
+                }
+
+                if (fieldInfo.FieldType.IsClass)
+                {
+                    fieldContainer = Create("class-container");
+                    var className = Create<Label>("class-name");
+                    className.text = fieldInfo.FieldType.Name;
+                    fieldContainer.Add(className);
+;                   GenerateFieldsInputs(fieldInfo.GetValue(data),fieldInfo.GetType().GetFields(),fieldContainer);
+                }
+                
+                Debug.Log(fieldInfo.Name);
+
+                fieldContainer.Add(fieldInput);
+                container.Add(fieldContainer);
+            }
+        }
+
+        private static TextField CreateTextField<T,TDataType>(FieldInfo fieldInfo, TDataType gameData , Func<string,T> setField)
         {
             var field = Create<TextField>("field-input");
             field.value = fieldInfo.GetValue(gameData).ToString();
@@ -118,7 +135,7 @@ namespace DebugMenu
         }
 
 
-        private static T CreateField<T,TValueType>(FieldInfo fieldInfo, GameData gameData,string className = "field-input") where T: BaseField<TValueType>,new()
+        private static T CreateField<T,TValueType,TDataType>(FieldInfo fieldInfo, TDataType gameData,string className = "field-input") where T: BaseField<TValueType>,new()
         {
             var field = Create<T>(className);
             field.value = (TValueType)fieldInfo.GetValue(gameData);

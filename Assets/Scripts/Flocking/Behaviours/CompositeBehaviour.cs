@@ -11,7 +11,9 @@ namespace Flocking.Behaviours
         [Serializable]
         public struct FlockBehaviourWeights
         {
+            [Header("Behavior")]
             public FlockBehaviour behavior;
+            [Range(0,1)]
             public float weight;
         }
 

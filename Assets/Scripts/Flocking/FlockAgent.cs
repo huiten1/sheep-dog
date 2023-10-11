@@ -27,13 +27,16 @@ namespace Flocking
         public void Move(Vector3 vel)
         {
             if(vel.IsNaN()) return;
+            
             vel.y = 0;
-            _vel = vel;
+            
+            if(vel.magnitude>1f)
+                _vel = Vector3.Lerp(_vel,vel,Time.deltaTime);
             if(vel.magnitude>0.001f)
                 MovementData.rotation = Quaternion.LookRotation(vel);
             MovementData.Direction = vel / 3f;
             if(vel.magnitude>0.1f)
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(vel),Time.deltaTime*2);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(vel),Time.deltaTime*5);
             transform.position += vel * Time.deltaTime;
         }
 

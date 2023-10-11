@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using Indicator;
 using Spawners;
 using Unity.Collections;
@@ -59,6 +60,13 @@ namespace Flocking
             _agents=_agents.Concat( _spawner.Spawn(goldenSheep,(flockAgent)=>flockAgent.Initialize(this))).ToList();
             
             startFlockCount = _agents.Count;
+            float sheepMax = GameManager.Instance.GameData.sheepMaxSpeed;
+            float sheepMin = GameManager.Instance.GameData.sheepMinSpeed;
+            float duration = GameManager.Instance.GameData.levelTime;
+
+            maxSpeed = sheepMax;
+            driveFactor = sheepMin;
+            DOTween.To(() => driveFactor, x => driveFactor = x, sheepMax/2f, duration);
         }
 
  
