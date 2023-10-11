@@ -1672,7 +1672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb4fda121684883abf0c6ba6821e3b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 36.79
+  radius: 45
   target: {fileID: 1971856016}
   targetCollider: {fileID: 112783235}
 --- !u!1 &115805854

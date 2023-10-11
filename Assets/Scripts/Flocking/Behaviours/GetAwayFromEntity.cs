@@ -26,7 +26,7 @@ namespace Flocking.Behaviours
                 return Vector3.zero;
             }
             
-            return direction * ((1+drive) * getAwayCurve.Evaluate(t)) ;
+            return direction * ((1+drive) * getAwayCurve.Evaluate(t)) + centerOffset ;
         }
     }
 }
