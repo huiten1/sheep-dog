@@ -21,7 +21,7 @@ public class Player : MonoBehaviour,IKillable
         {
             stayInEntityBehaviour.minSpeed = GameManager.Instance.GameData.sheepMinSpeed;
             stayInEntityBehaviour.maxSpeed = GameManager.Instance.GameData.sheepMaxSpeed;
-            stayInEntityBehaviour.scale = GameManager.Instance.GameData.dogChasePower;
+            // stayInEntityBehaviour.scale = GameManager.Instance.GameData.dogChasePower;
             stayInEntityBehaviour.radius = GameManager.Instance.GameData.dogChaseRadius;
         }
 
