@@ -19,7 +19,9 @@ public class Player : MonoBehaviour,IKillable
 
         private void Start()
         {
-      
+            stayInEntityBehaviour.minSpeed = GameManager.Instance.GameData.sheepMinSpeed;
+            stayInEntityBehaviour.maxSpeed = GameManager.Instance.GameData.sheepMaxSpeed;
+            stayInEntityBehaviour.scale = GameManager.Instance.GameData.dogChasePower;
             stayInEntityBehaviour.radius = GameManager.Instance.GameData.dogChaseRadius;
         }
 
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour,IKillable
         {
             stayInEntityBehaviour.center = transform.position;
             stayInEntityBehaviour.direction = transform.forward;
+
             if(_movementInput!=null)
                 stayInEntityBehaviour.drive = _movementInput.MovementData.Direction.magnitude;
         }

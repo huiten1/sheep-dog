@@ -7,17 +7,20 @@ using UnityEngine.Serialization;
     public class GameData
     {
         public float dogChaseRadius;
+        public float dogChasePower;
+        public float sheepMaxSpeed;
+        public float sheepMinSpeed;
+        
+        
         public float playerSpeed;
         public float levelTime;
         public CameraMode cameraMode;
         public int sheepPrice; 
         public int goldenSheepPrice;
      
-        public float sheepMaxSpeed;
-        public float sheepMinSpeed;
-        
         public GameData()
         {
+            dogChasePower = 1;
             sheepMaxSpeed = 25;
             sheepMinSpeed = 0;
             levelTime = 30;

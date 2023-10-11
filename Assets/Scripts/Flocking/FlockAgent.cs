@@ -31,7 +31,7 @@ namespace Flocking
             vel.y = 0;
             
             if(vel.magnitude>1f)
-                _vel = Vector3.Lerp(_vel,vel,Time.deltaTime);
+                _vel = Vector3.Lerp(_vel,vel,Time.deltaTime  *5);
             if(vel.magnitude>0.001f)
                 MovementData.rotation = Quaternion.LookRotation(vel);
             MovementData.Direction = vel / 3f;
