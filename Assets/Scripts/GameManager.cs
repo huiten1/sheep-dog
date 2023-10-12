@@ -28,22 +28,15 @@ public class GameManager : Singleton<GameManager>
         DontDestroyOnLoad(this);
 
         var composite = Resources.Load<CompositeBehaviour>("FlockBehaviours/Composite");
-        foreach (var behaviour in composite.behaviours  )
-        {
-            if (behaviour.behavior is AvoidanceBehaviour)
-            {
-                behaviour.weight = GameData.Avoidance;
-            }
-            if (behaviour.behavior is SteeredCohesionBehaviour)
-            {
-                behaviour.weight = GameData.SteeredCohesion;
-            }
-            if (behaviour.behavior is CohesionBehaviour)
-            {
-                behaviour.weight = GameData.Cohesion;
-            }
-        }
-
+       
+                composite.behaviours[2].weight = GameData.Avoidance;
+                composite.behaviours[3].weight = GameData.Cohesion;
+                composite.behaviours[4].weight = GameData.SteeredCohesion;
+            
+           
+            
+            
+        
     }
     public void LoadData()=> GameData = SaveManager.Load<GameData>();
     private void Start()
@@ -86,21 +79,10 @@ public class GameManager : Singleton<GameManager>
         UpdateGameState(GameState.PlayerSelect);
         FloatingTextPool.Clear();
         var composite = Resources.Load<CompositeBehaviour>("FlockBehaviours/Composite");
-        foreach (var behaviour in composite.behaviours  )
-        {
-            if (behaviour.behavior is AvoidanceBehaviour)
-            {
-                behaviour.weight = GameData.Avoidance;
-            }
-            if (behaviour.behavior is SteeredCohesionBehaviour)
-            {
-                behaviour.weight = GameData.SteeredCohesion;
-            }
-            if (behaviour.behavior is CohesionBehaviour)
-            {
-                behaviour.weight = GameData.Cohesion;
-            }
-        }
+       
+        composite.behaviours[2].weight = GameData.Avoidance;
+        composite.behaviours[3].weight = GameData.Cohesion;
+        composite.behaviours[4].weight = GameData.SteeredCohesion;
     }
     public void UpdateGameState(GameState gameState)
     {
