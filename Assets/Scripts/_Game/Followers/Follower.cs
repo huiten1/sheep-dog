@@ -32,6 +32,10 @@ namespace _Game.Followers
         private void Start()
         {
             offset = targetTf.position - transform.position;
+            offset = -GameManager.Instance.GameData.cameraOffset;
+            var rot = transform.rotation.eulerAngles;
+            rot.x = GameManager.Instance.GameData.cameraXRotation;
+            transform.rotation = Quaternion.Euler(rot);
             followMethodDict = new()
             {
                 { FollowType.Fixed, FixedFollow },

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using System.Reflection;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -88,6 +89,11 @@ namespace DebugMenu
                 if (fieldInfo.FieldType == typeof(string))
                 {
                     fieldInput = CreateField<TextField, string,T>(fieldInfo, data);
+                }
+
+                if (fieldInfo.FieldType == typeof(Vector3))
+                {
+                    fieldInput = CreateField<Vector3Field, Vector3, T>(fieldInfo, data);
                 }
 
                 if (fieldInfo.FieldType.IsEnum)
