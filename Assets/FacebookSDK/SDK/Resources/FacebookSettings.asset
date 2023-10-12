@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - 
+  - a38888bf3b8d3199dcddc3cf580184bb
   appIds:
-  - 0
+  - 851623246374838
   appLabels:
-  - App Name
+  - Sheep Dog 3D
   cookie: 1
   logging: 1
   status: 1

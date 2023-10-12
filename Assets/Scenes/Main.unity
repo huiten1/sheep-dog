@@ -10612,7 +10612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainFlock: {fileID: 1177560333}
   enteredSheepCount: 0
-  subTotal: 0
+  total: 0
 --- !u!1 &620028991
 GameObject:
   m_ObjectHideFlags: 0
