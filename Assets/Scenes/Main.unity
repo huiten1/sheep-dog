@@ -19723,7 +19723,7 @@ MonoBehaviour:
   spawnerObject: {fileID: 1211207925}
   goldenSheepSpawner: {fileID: 1694483380}
   driveFactor: 1
-  maxSpeed: 25
+  maxSpeed: 50
   neighborRadius: 6.54
   avoidanceRadiusMultiplier: 0.859
   startFlockCount: 0
@@ -20079,7 +20079,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1184355396}
   m_Layer: 0
-  m_Name: -------------------Actors---------------------------------  (1)
+  m_Name: -------------------Actors-----------------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
