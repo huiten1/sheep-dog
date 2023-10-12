@@ -1,7 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
+using _Game;
+using GameAnalyticsSDK;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -21,6 +22,7 @@ public class GameManager : Singleton<GameManager>
     public IObjectPool<GameObject> FloatingTextPool { get; private set; }
     private void Awake()
     {
+        GameAnalytics.Initialize();
         LoadData();
         DontDestroyOnLoad(this);
         
@@ -43,16 +45,22 @@ public class GameManager : Singleton<GameManager>
     public void StartGame()
     {
         UpdateGameState(GameState.Started);
+        
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start,"level_1");
     }
 
     public void Complete()
     {
         UpdateGameState(GameState.Finished);
+        int sheepCount = FindObjectOfType<SheepCounter>().enteredSheepCount;
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete,$"sheep_count_{sheepCount}");
     }
 
     public void GameOver()
     {
         UpdateGameState(GameState.GameOver);
+        int sheepCount = FindObjectOfType<SheepCounter>().enteredSheepCount;
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail,$"sheep_count_{sheepCount}");
     }
     public void LoadMain()
     {

@@ -15,7 +15,7 @@ namespace _Game
         [SerializeField] public Flock mainFlock;
         public int enteredSheepCount = 0;
         public int StartCount => mainFlock.startFlockCount;
-        public int subTotal = 0;
+         public int total = 0;
         private void OnTriggerEnter(Collider other)
         {
             if(other.gameObject.layer!= LayerMask.NameToLayer("Boid")) return;
@@ -26,7 +26,7 @@ namespace _Game
 
         
             int price = other.GetComponent<SheepAI>().price;
-            subTotal += price;
+            total += price;
             var floatingText = GameManager.Instance.FloatingTextPool.Get();
             
             floatingText.transform.position = other.transform.position + Vector3.up*5;

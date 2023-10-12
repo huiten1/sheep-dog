@@ -32,7 +32,7 @@ namespace _Game
                 completionCountText.SetText($"{sheepCount} / {flock.StartCount}");
             }, capturedFlockCount, 1f).onComplete += () =>
             {
-                int targetReward =  flock.subTotal;
+                int targetReward =  flock.total;
                 int dollarAmount = 0;
                 DOTween.To(() => sheepCount, e =>
                 {
