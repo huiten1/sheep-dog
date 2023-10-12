@@ -19722,7 +19722,7 @@ MonoBehaviour:
     m_Bits: 192
   spawnerObject: {fileID: 1211207925}
   goldenSheepSpawner: {fileID: 1694483380}
-  driveFactor: 1
+  driveFactor: 3
   maxSpeed: 50
   neighborRadius: 6.54
   avoidanceRadiusMultiplier: 0.859
@@ -20697,7 +20697,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1206606444
 BoxCollider:
   m_ObjectHideFlags: 0

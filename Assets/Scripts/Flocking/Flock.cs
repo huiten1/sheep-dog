@@ -62,6 +62,8 @@ namespace Flocking
             startFlockCount = _agents.Count;
        
             float duration = GameManager.Instance.GameData.levelTime;
+            
+            
 
            
             DOTween.To(() => driveFactor, x => driveFactor = x, 6, duration);

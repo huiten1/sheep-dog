@@ -16,7 +16,7 @@ namespace Flocking.Behaviours
             _filteredContext  = (filter == null) ? context : filter.Filter(agent, context);
             foreach (Transform item in _filteredContext)
             {
-                alignmentMove += item.GetComponent<FlockAgent>().Velocity;
+                alignmentMove += item.transform.forward;
             }
             alignmentMove /= context.Count;
 

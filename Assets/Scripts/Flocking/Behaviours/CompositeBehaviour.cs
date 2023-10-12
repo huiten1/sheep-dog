@@ -9,7 +9,7 @@ namespace Flocking.Behaviours
     {
         
         [Serializable]
-        public struct FlockBehaviourWeights
+        public class FlockBehaviourWeights
         {
             [Header("Behavior")]
             public FlockBehaviour behavior;

@@ -19,18 +19,28 @@ using UnityEngine.Serialization;
         public int goldenSheepPrice;
         public Vector3 cameraOffset;
         public float cameraXRotation;
-     
+
+        public float SteeredCohesion;
+        public float Avoidance;
+        public float Cohesion;
         public GameData()
         {
             cameraXRotation = 61.31f;
             cameraOffset = new Vector3(0, 38, -49.72f + 37.8f);
+
+            SteeredCohesion = 0.445f;
+            Avoidance = 0.55f;
+            Cohesion = 0.462f;
             
-            // dogChasePower = 1;
             sheepMaxSpeed = 25;
             sheepMinSpeed = 0;
+            
             levelTime = 30;
+            
             dogChaseRadius = 25;
+            
             playerSpeed = 10;
+            
             sheepPrice = 5;
             goldenSheepPrice = 20;
         }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using _Game;
+using Flocking.Behaviours;
 using GameAnalyticsSDK;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -25,7 +26,24 @@ public class GameManager : Singleton<GameManager>
         GameAnalytics.Initialize();
         LoadData();
         DontDestroyOnLoad(this);
-        
+
+        var composite = Resources.Load<CompositeBehaviour>("FlockBehaviours/Composite");
+        foreach (var behaviour in composite.behaviours  )
+        {
+            if (behaviour.behavior is AvoidanceBehaviour)
+            {
+                behaviour.weight = GameData.Avoidance;
+            }
+            if (behaviour.behavior is SteeredCohesionBehaviour)
+            {
+                behaviour.weight = GameData.SteeredCohesion;
+            }
+            if (behaviour.behavior is CohesionBehaviour)
+            {
+                behaviour.weight = GameData.Cohesion;
+            }
+        }
+
     }
     public void LoadData()=> GameData = SaveManager.Load<GameData>();
     private void Start()
@@ -67,6 +85,22 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(0);
         UpdateGameState(GameState.PlayerSelect);
         FloatingTextPool.Clear();
+        var composite = Resources.Load<CompositeBehaviour>("FlockBehaviours/Composite");
+        foreach (var behaviour in composite.behaviours  )
+        {
+            if (behaviour.behavior is AvoidanceBehaviour)
+            {
+                behaviour.weight = GameData.Avoidance;
+            }
+            if (behaviour.behavior is SteeredCohesionBehaviour)
+            {
+                behaviour.weight = GameData.SteeredCohesion;
+            }
+            if (behaviour.behavior is CohesionBehaviour)
+            {
+                behaviour.weight = GameData.Cohesion;
+            }
+        }
     }
     public void UpdateGameState(GameState gameState)
     {
