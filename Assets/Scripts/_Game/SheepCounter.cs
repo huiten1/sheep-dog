@@ -16,6 +16,7 @@ namespace _Game
         public int enteredSheepCount = 0;
         public int StartCount => mainFlock.startFlockCount;
          public int total = 0;
+         [SerializeField] private float goldSheepTextScale = 1f;
         private void OnTriggerEnter(Collider other)
         {
             if(other.gameObject.layer!= LayerMask.NameToLayer("Boid")) return;
@@ -33,7 +34,7 @@ namespace _Game
             var tmpText = floatingText.GetComponent<TMP_Text>();
             if(other.name.ToLower().Contains("gold"))
             {
-                floatingText.transform.localScale *= 4f;
+                floatingText.transform.localScale = Vector3.one * goldSheepTextScale;
             }
             else
             {
