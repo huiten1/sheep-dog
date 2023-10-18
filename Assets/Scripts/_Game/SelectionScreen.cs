@@ -20,11 +20,11 @@ namespace _Game
         private void Start()
         {
             offset = selections[_currentSelection].transform.position - camTf.position;
-            
+
             leftButton.onClick.AddListener(GoLeft);
             rightButton.onClick.AddListener(GoRight);
-            startButton.onClick.AddListener(()=>GameManager.Instance.StartGame());
-            startButton.onClick.AddListener(()=>onSelected?.Invoke(selections[_currentSelection]));
+            startButton.onClick.AddListener(() => GameManager.Instance.StartGame());
+            startButton.onClick.AddListener(() => onSelected?.Invoke(Instantiate(selections[_currentSelection])));
             Refresh();
         }
 
@@ -42,9 +42,9 @@ namespace _Game
 
         private void Refresh()
         {
-            camTf.DOMove(selections[_currentSelection].transform.position-offset,0.6f);
+            camTf.DOMove(selections[_currentSelection].transform.position - offset, 0.6f);
             leftButton.gameObject.SetActive(_currentSelection != 0);
-            rightButton.gameObject.SetActive(_currentSelection != selections.Length-1);
+            rightButton.gameObject.SetActive(_currentSelection != selections.Length - 1);
         }
     }
 }
